@@ -1,0 +1,234 @@
+@charset "utf-8";
+#wrapper {
+  width: 100%;
+  position: relative;
+  min-width: 1920px;
+  /* 최소의 크기 : 1920px */
+  /* 그래야 배경이 깨지지 않음 */
+}
+.header {
+  width: 100%;
+  position: relative;
+  height: 196px;
+  /* background: url(../img/bg_top.gif) repeat-x  0 0     red; */
+                    /* img            가로로 반복     position    색상값은 무조건 뒤로*/
+  background: url(../img/bg_top.gif) repeat-x  0 0;
+}
+
+/*
+우선순위
+인라인스타일 > 아이디 선택자 > 클래스 선택자 > 태그 
+예를 들어서 점수를 메긴다면
+1000점          100점           10점          1점
+*/
+
+
+/* #wrapper .header .headerIntro{background-color: red;}
+100점       10점      10점      = 120점
+.header .headerIntro{background-color: blue;}
+10점        10점      = 20점
+
+아래 나온게 적용될 거 같지만 red가 점수가 더 높아서 빨간색이 나옴
+
+css를 다 맞게 적용해도 적용이 안 되면 우선순위를 보기!! 
+조상들 다 꺼내지 말기 */
+
+
+.header .headerIntro {
+  width: 1200px;
+  /* 포폴 만들 때 width값 다 1200에 맞추기 */
+  margin: 0 auto;
+  /* 중앙 정렬 */
+  /* 컨텐츠 중앙정렬이 text-align : center이 아니라 margin: 0 auto; */
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+}
+
+.intro_quick_mune {float: left;}
+/* .intro_quick_mune li {float: left;} */
+.intro_menu {float:right;}
+/* .intro_menu li {float: left;} */
+.aside_menu li{
+  float: left;
+/* .intro_quick_mune li {float: left;}
+.intro_menu li {float: left;}
+이렇게 두줄로 쓸거 한 줄로 작성 */
+  padding-right: 10px;
+}
+
+.aside_menu li:after {
+  content: ':';
+  padding-left: 10px;
+}
+.aside_menu li:last-child:after {
+  content: '';
+  padding-left: 0;
+}
+
+.header_logo_wrap {
+  width: 1200px;
+  margin: 0 auto;
+  height: 100px;
+  position: relative;
+}
+.header_logo_wrap h1 {
+  text-align: center;
+}
+/*
+  1. 컨텐츠가 대각선으로 이동하거나
+  2. 컨텐츠 위에 컨텐츠를 올려야 할 때
+  다
+  position
+
+  그런데
+  position으로 도배 금지
+  건드려도 깨지지말아야됌
+*/
+.header_logo_wrap .header_search {
+  position: absolute;
+  right: 0;
+  top: 40px;
+}
+
+.header_search .input_text {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #208dbe;
+  border: 0 none;
+  transition: width 0.5s ease-in-out;
+            /* 대상  시간   효과 */
+}
+
+.header_search .search_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: none;
+  border: none;
+  text-indent: -9999px;
+}
+.header_search .search_btn:before {
+  content: '';
+  /* content는 before, after를 사용하면 반드시 작성해야됌 */
+  width: 10px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  position: absolute;
+  top: 33px;
+  left: 30px;
+  transform: rotate(45deg);
+}
+.header_search .search_btn:after {
+  content: '';
+  /* 하나에다가 작대기도 만들고 원도 만들고 그럴수는 없음  before, after로 각각 따로 만들기 */
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  position: absolute;
+  top: 13px;
+  left: 13px;
+}
+
+/* hover */
+.header_search:hover .input_text {
+  width: 300px;
+}
+
+.header_search:hover .search_btn {
+  display: none;
+}
+.header_search:hover .close {
+  display: block;
+}
+.header_search:hover .close:after {
+  content: '';
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  transform: rotate(-45deg);
+}
+
+.header_search:hover .close:before {
+  content: '';
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  transform: rotate(45deg);
+}
+
+.header .gnb_wrap {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 999;
+  /* zindex를 사용할 때 반드시 position 을 사용해야됌!!!!! 순서를 뒤바꾸는 거라서*/
+  /* 순서기 때문에 px단위를 사용하지 않음 */
+}
+
+/* .gnb_wrap .gnb li {
+  .gnb 안에 있는 모든 li */
+.gnb_wrap .gnb li {
+  float: left;
+  height: 56px;
+  width: 240px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 56px;
+}
+
+.gnb_wrap .gnb > li > a {
+  /* 포폴 만들 때 온갖 선택자 다 꺼집어내서 사용하는거 안 좋음 하지말기
+  유지보수 할 때 안 좋음 사이트만 지저분해짐 */
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: #222;
+}
+
+.gnb_wrap .gnb > li > a:after {
+  content: '';
+  /* before, after에는 content써야됌!! */
+  width: 80px;
+  height: 5px;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.gnb_wrap .gnb li:hover a:after {
+  top: 50px;
+  opacity: 1;
+}
+
+.gnb li .gnb_deth2 {
+  border-right: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  height: 250px;
+  background-color: #fff;
+  display: none;
+  /* 제이쿼리나 자바스크립트로 2차 메뉴 보이게 함 */
+}
+
+.gnb li:first-child .gnb_deth2{
+  border-left: 1px solid #d9d9d9;
+}

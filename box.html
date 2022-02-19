@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent1 {
+      border: 10px solid red;
+      overflow: hidden;
+      /* 블록요소처럼 width가 100% */
+    }
+    .parent1 div {
+      border: 5px solid blue;
+      height: 100px;
+      float: left;
+    }
+
+    .parent2 {
+      border: 10px solid green;
+      display: inline-block;
+    }
+    .parent2 div {
+      border: 5px solid blue;
+      height: 100px;
+      float: left;
+    }
+
+    .parent3 {
+      border: 10px solid orange;
+      float: left;
+    }
+    .parent3 div {
+      border: 5px solid blue;
+      height: 100px;
+      float: left;
+    }
+
+    .parent4:after {
+      border: 10px solid pink;
+      content: '';
+      display: block;
+      /* after가 인라인요소라서  */
+      clear: both;
+      /* 위에 float:tight, left 한걸 지워버림 */
+    }
+    .parent4 div {
+      border: 5px solid blue;
+      height: 100px;
+      float: left;
+    }
+
+    /* .clear {
+      border: 10px solid red;
+    }
+    .clear li {
+      border: 1px solid blue;
+      float: left;
+    }
+    .clear li:nth-child(2) {
+      background-color: orange;
+      clear: both;
+    }
+ */
+    .none {
+      border: 10px solid green;
+    }
+    .none li {
+      border: 1px solid blue;
+      float: left;
+    }
+    .none li:nth-child(2) {
+      background-color: orange;
+      float: none;
+      /* 2번만 float:none  */
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="parent1"> parent (overflow)
+    <div class="child">child1</div>
+    <div class="child">child2</div>
+    <div class="child">child3</div>
+  </div>
+
+  <div class="parent2"> parent (display)
+    <div class="child">child1</div>
+    <div class="child">child2</div>
+    <div class="child">child3</div>
+  </div>
+
+  <div class="parent3"> parent (float)
+    <div class="child">child1</div>
+    <div class="child">child2</div>
+    <div class="child">child3</div>
+  </div>
+
+  <div class="parent4"> parent (clearfix)
+    <div class="child">child1</div>
+    <div class="child">child2</div>
+    <div class="child">child3</div>
+  </div>
+
+  <ul class="clear">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+
+  <ul class="none">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+
+</body>
+</html>

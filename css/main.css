@@ -1,0 +1,591 @@
+@charset "utf-8";
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.visual_wrap {
+  width: 1920px;
+  position: relative;
+  margin: 0 auto;
+  /* 가운데 배치 */
+  height: 510px;
+}
+
+.visual_wrap .visual_btn_left {
+  left: 150px;
+  transform: rotate(-45deg);
+}
+
+.visual_wrap .visual_btn_right {
+  right: 150px;
+  transform: rotate(135deg);
+}
+
+.visual_wrap .btn {
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+.visual_wrap .btn a {
+  display: block;
+  text-indent: -999px;
+}
+
+.visual_btn {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0;
+  /* .visual_btn a 에 
+  display: inline-block;을 하면 
+  inline-block는 요소와 요소 사이에 공백이 생긴게 글씨가 날아가면서 공백이 사라짐*/
+}
+
+.visual_btn .on {
+  width: 80px;
+  /* 선택을 한 대상한테는 크기값 크게 */
+  background-color: #07c;
+}
+
+.visual_btn a {
+  width: 40px;
+  height: 5px;
+  background-color: #7c7c7c;
+  display: inline-block;
+  /* inline-block는 요소와 요소 사이에 공백이 생김 */
+  font-size: 12px;
+  /* visual_btn 에서 font-size:0을 해서 글자 크기 날아간 것을 다시 글자 크기 만들어줌 */
+
+  /* 정리를 하자면 inline-block를 하면 옆으로 배열은 되지만  컨텐츠와 컨텐츠 사이에 공백임 생김
+  공백을 없애려면
+  inline-block를 한 대상을 감싸고 있는 부모에 내 자식들의 폰트 크기를 없애고
+  그리고 inline-block를 한 대상에 폰트 크기를 넣어주면
+  공백은 사라지면서 폰트 크기는 유지가 됌
+  */
+
+
+
+  /* 이게 헷갈리면 부모는 건들지말구
+  .visual_btn {
+    font-size: 0;
+  }
+  .visual_btn a {
+    display: block;
+    float: left;
+  } */
+
+  margin-left: 10px;
+  text-indent: -9999px;
+}
+
+.visual_btn a:first-child {
+  margin-left: 0;
+}
+
+.text_wrap {
+  position: absolute;
+  top: 100px;
+  left: 350px;
+}
+
+.text_wrap .visual_title {
+  font-size: 50px;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.text_wrap .visual_title span {
+  font-weight: 300;
+}
+
+.text_wrap .visual_text {
+  font-size: 30px;
+}
+.text_wrap .visual_btn_our {
+  display: block;
+  margin-top: 50px;
+  width: 200px;
+  height: 30px;
+  background-color: #999;
+  border-radius: 30px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.visual li a:hover {
+  color: #222;
+}
+
+.visual li a:hover .visual_btn_our {
+  background-color: #07c;
+  color: #fff;
+}
+
+.visual li {
+  width: 1920px;
+  height: 510px;
+}
+
+.visual li:nth-of-type(1) {
+  background: url(../img/main_img01.jpg) no-repeat center;
+                                       /* 반복할 필요 없음     가운데 정렬 */
+}
+/* :nth-child(), :nth-of-type()의 차이점
+
+:nth-child()
+남여 각각 6명씩 있음
+남여 구별 없이 자식들을 순서대로 하는거
+
+:nth-of-type()
+남자형제, 여자형제 구분을 해서
+남자 중에 몇 번째, 여자 중에 몇 번째 이렇게 선택 */
+/* 지금같은 경우, nth-of-type, nth-child 둘 중에 아무거나 사용해도 됌 */
+
+.visual li:nth-of-type(2) {
+  background: url(../img/main_img02.jpg) no-repeat center;
+  display: none;
+}
+
+.visual li:nth-of-type(3) {
+  background: url(../img/main_img03.jpg) no-repeat center;
+  display: none;
+}
+
+.content_wrap {
+  width: 1200px;
+  margin: 50px auto;
+  position: relative;
+}
+.content_wrap .contents_1{
+  float: left;
+  width: 770px;
+}
+
+.content_wrap .contents_2{
+  float: left;
+  width: 430px;
+}
+
+.contents_1 .cont_div1 {}
+
+.cont_div1 .company {
+  width: 385px;
+  float: left;
+  height: 250px;
+  background: url(../img/main_banner01.jpg) no-repeat 0 0;
+  background-size: cover;
+  position: relative;
+}
+.cont_div1 .company:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* width: 100%;, height: 100%;와 같음 */
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.cont_div1 .company a,
+.cont_div1 .product_cont a{
+  display: block;
+  width: 100%;
+  /* border-box 안 할거면
+  width: 385px; -30px - 30px = 325px
+  만약에 border:1px이 있으면 385-30-30-1-1 = 323px
+  */
+  height: 100%;
+  /* height: 150px; */
+  position: relative;
+  z-index: 3;
+  padding: 80px 30px 20px;
+  /* 3개 값은 상 좌우 하 */
+  text-decoration: none;
+  background: url(../img/icon_main_banner01.png) no-repeat center 20px;
+  box-sizing: border-box;
+}
+
+.cont_div1 .cont_h3 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.cont_div1 .cont_text {
+  text-align: center;
+  font-size: 16px;
+  /* 16은 큼 , 보통 14px */
+  color: #fff;
+}
+
+.cont_div1 .product_cont {
+  width: 385px;
+  float: left;
+  height: 250px;
+  background-color: #bcbcbc;
+}
+
+.cont_div1 .product_cont a {
+  background: url(../img/icon_main_banner02.png) no-repeat center 20px;
+}
+.product_cont .cont_h3 {
+  color: #222;
+}
+.product_cont .cont_text {
+  color: #222;
+}
+
+.cont_div2 .customer {
+  width: 385px;
+  height: 250px;
+  float: left;
+  background-color: #fff;
+  border-left: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  /* cs3에서 나옴, 박스 사이즈 보더 박스가없는 사이트도 있음 */
+  padding: 30px;
+  text-align: center;
+}
+.cont_div2 .cont_div_h3 {
+  font-size: 30px;
+}
+.customer .tell {
+  display: block;
+  font-size: 32px;
+  margin: 20px 0 30px 0;
+}
+
+.customer span {
+  line-height: 1.5;
+  /* px, %, em, rem, 소수점단위를 사용하기도 함 */
+  /* 해당하는 폰트의 1.5배 
+  font-size:14px면 라인하이트는 14px의 1.5배
+  */
+}
+
+.cont_div2 .notice {
+  width: 385px;
+  height: 250px;
+  float: left;
+  background-color: #f1f1f1;
+  position: relative;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.notice .notice_list {
+  text-align-last: left;
+  margin-top: 20px;
+}
+.notice .notice_list li{
+  line-height: 2.5;
+  font-size: 14px;
+  border-bottom: 1px dotted #d9d9d9;
+}
+
+.notice .more{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.content_wrap .contents_2 {
+  float: left;
+  width: 430px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  /* 하나만 보이게됌 나머지는 숨겨짐 */
+}
+
+.contents_2 .contents_banner {}
+.contents_2 .contents_banner li {
+  width: 430px;
+  height: 500px;
+  padding: 50px;
+  box-sizing: border-box;
+}
+.contents_2 .contents_banner li a {
+  text-decoration: none;
+}
+
+.contents_banner .cont_banner_title {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.contents_banner .cont_banner_text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contents_2 .contents_banner li:nth-of-type(1) {
+  background: url(../img/main_banner03_1.jpg) no-repeat 0 bottom;
+}
+.contents_2 .contents_banner li:nth-of-type(2) {
+  background: url(../img/main_banner03_2.jpg) no-repeat 0 bottom;
+}
+.contents_2 .contents_banner li:nth-of-type(3) {
+  background: url(../img/main_banner03_1.jpg) no-repeat 0 bottom;
+}
+
+.contents_2 .banner_btn_number {
+  position: absolute;
+  bottom:50px;
+  left:50%;
+  font-size: 0;
+  transform: translateX(-50%);
+}
+.contents_2 .banner_btn_number a {
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 100%;
+  text-align: center;
+  margin-left: 10px;
+  text-indent: -9999px;
+}
+.contents_2 .banner_btn_number a.on {
+  background-color: #ffa500;
+  /* 동그라미 색상으로만 구별하게 하면 안 됌
+  형태가 변형이 되어야 접근성에 맞음 */
+  padding: 3px;
+}
+
+.banner_btn_arrow .banner_btn {
+  position: absolute;
+  /* 콘텐츠 위에 올리는거 */
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-top: 1px solid #222;
+  border-left: 1px solid #222;
+  transform: translateY(-50%);
+}
+
+.banner_btn_arrow .banner_btn a {
+  display: block;
+  text-indent: -9999px;
+}
+.banner_btn_arrow .banner_btn_prev {
+  left: 30px;
+  transform: rotate(-45deg);
+}
+.banner_btn_arrow .banner_btn_next {
+  right: 30px;
+  transform: rotate(135deg);
+}
+
+.inquiry_wrap {
+  width: 100%;
+  height: 270px;
+  text-align: center;
+  margin: 50px 0;
+  background: url(../img/bg_main_banner04.png) repeat 0 0;
+  background-color: rgba(11, 67, 90, 0.5);
+  position: relative;
+  /* 부모자식 같이 잇어야 */
+}
+.inquiry_wrap:after {
+  content: '';
+  display: block;
+  /* a태그는 인라인 */
+  position: absolute;
+  /* 위로 올림 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../img/bg_main_banner04.jpg) no-repeat center top fixed;
+  /* 이미지 고정시킴 */
+  z-index: -1;
+  /* 순서라서 px 단위값 사용 x */
+  /* 젤 밑에 -1 */
+}
+
+.inquiry_wrap .inquiry_cont {
+  color: #fff;
+  /*
+  폰트 크기는 커지는 색상은 안 바뀜
+  */
+  padding: 50px 0;
+  box-sizing: border-box;
+}
+.inquiry_wrap .inquiry_cont p {
+  font-size: 38px;
+}
+.inquiry_wrap .inquiry_cont a{
+  text-decoration: none;
+}
+.inquiry_wrap .inquiry_cont .inquiry_more {
+  color: #fff;
+  width: 250px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  border-radius: 30px;
+  line-height: 50px;
+  /* 높이값하고 똑같이, 가운데 정렬 */
+  font-size: 20px;
+  margin-top: 50px;
+}
+.inquiry_wrap .inquiry_cont a:hover .inquiry_more {
+  background-color: rgba(11, 67, 90, 1);
+}
+
+.product_wrap {
+  width: 1200px;
+  margin: 50px auto;
+}
+
+.product_list li {
+  float: left;
+  width: 285px;
+  height: 285px;
+  position: relative;
+  margin-right: 20px;
+}
+
+.product_list li:last-child {
+  margin-right: 0;
+}
+
+.product_list li .sale {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-color: #07c;
+  color: #fff;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 40px;
+}
+
+.product_list li > a > img {
+  /* li의 자식인 a만 , 그 자식의 자식인 img */
+  width: 285px;
+  height: 285px;
+  /* 이미지 강제로 자르면 안 됌 */
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+}
+
+.product_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 285px;
+  height: 285px;
+  opacity: 0;
+}
+.product_list > li:hover .product_box {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  box-sizing:border-box;
+  opacity: 1;
+}
+.product_box .product_title {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  display: block;
+}
+.product_box .product_btn {
+  position: absolute;
+  bottom: 50px;
+  left: 40px;
+  font-size: 0;
+}
+.product_box .product_btn a {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(11, 67, 90, 1);
+  border-radius: 5px;
+  text-align: center;
+  margin-right: 10px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+.product_box .product_btn a:last-child {
+  margin-right: 0;
+}
+
+.product_list > li:hover .product_btn a:nth-of-type(1){
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+.product_list > li:hover .product_btn a:nth-of-type(2){
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+.product_list > li:hover .product_btn a:nth-of-type(3){
+  opacity: 1;
+  transition-delay: 0.6s;
+}
+
+.quick_menu_wrap {
+  width: 1200px;
+  margin: 50px auto;
+}
+
+.quick_menu_wrap .quick_menu li {
+  float: left;
+  width: 220px;
+  height: 130px;
+  margin-right: 25px;
+  background-color: #07c;
+  text-align: center;
+  line-height: 130px;
+  border-radius: 5px;
+}
+
+.quick_menu_wrap .quick_menu li:last-child {
+  margin-right: 0;
+}
+
+.quick_menu_wrap .quick_menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
+  display: block;
+}
+
+.quick_menu_wrap .quick_menu li a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+}
+.quick_menu_wrap .quick_menu li:hover a:after {
+  content: '';
+  width: 0;
+  
+}

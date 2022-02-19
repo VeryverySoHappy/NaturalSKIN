@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+.footer {
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+  height: 200px;
+}
+
+.footer_menu_wrap {
+  border-top: 1px solid #999;
+}
+.footer_menu_wrap .footer_menu {
+  width: 1200px; /*border 값이 포함된 값 실제 넓이 1198*/
+  margin: 0 auto;
+  /* border-left: 1px solid #999;
+  border-right: 1px solid #999; */
+  height: 50px;
+}
+.footer_menu_wrap .footer_menu li {
+  float: left;
+  width: 240px; /*1200 이라서 넓이가 부족해서 마지막 하나가 아래로 떨어짐*/
+  text-align: center;
+  line-height: 50px;
+  box-sizing: border-box;
+}
+
+.footer_menu_wrap .footer_menu li:first-child {
+  border-left: 1px solid #999;
+}
+.footer_menu_wrap .footer_menu li:last-child {
+  border-right: 1px solid #999;
+}
+
+.footer_wrap {
+  width: 100%;
+  background-color: rgb(15, 13, 13);
+  height: 150px;
+}
+.footer_add {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.footer_add .add {
+  float: left;
+  line-height: 2;
+  color: #fff;
+}
+.footer_add .add a {
+  color: #ff0;
+}
+.footer_add .footer_banner {
+  float: right;
+  width: 200px;
+}
+.footer_add .footer_banner li {
+  float: left;
+}
